@@ -1,0 +1,655 @@
+/* ==========================================================================
+   КЛУЧНИ ПОСТАВКИ И БАЗА
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fbf7f4;
+    background-image: radial-gradient(#8b3a4c 0.75px, transparent 0.75px), radial-gradient(#8b3a4c 0.75px, #fbf7f4 0.75px);
+    background-size: 30px 30px;
+    background-position: 0 0, 15px 15px;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   1. МОДЕРЕН ЛЕБДЕЧКИ НАВБАР
+   ========================================================================== */
+header {
+    position: sticky;
+    top: 20px;
+    z-index: 1000;
+    padding: 0 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 10px 30px;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(139, 58, 76, 0.08);
+    border: 1px solid rgba(242, 225, 223, 0.9);
+}
+
+/* Лого */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.08) rotate(3deg);
+}
+
+/* Главни линкови */
+.nav-links {
+    display: flex !important;
+    flex-direction: row !important;
+    list-style: none !important;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.nav-links li {
+    position: relative;
+    list-style: none !important;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #5e4350;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 8px 16px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #8b3a4c !important;
+    background: rgba(139, 58, 76, 0.08) !important;
+}
+
+/* Dropdown (Јазици) */
+.nav-links li.dropdown {
+    position: relative;
+    padding-bottom: 12px;
+    margin-bottom: -12px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 170px;
+    box-shadow: 0px 10px 25px rgba(139, 58, 76, 0.12);
+    border-radius: 16px;
+    padding: 12px 0;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    border: 1px solid #f0e2dc;
+    margin-top: 2px;
+}
+
+.dropdown-content a {
+    color: #5e4350;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    border-radius: 0;
+    display: block;
+    text-align: center;
+}
+
+.dropdown-content a:hover,
+.dropdown-content a.active-lang {
+    color: #8b3a4c !important;
+    background: #f0e2dc !important;
+}
+
+.nav-links li.dropdown:hover .dropdown-content {
+    display: block;
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -8px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+/* Копче за Кошничка */
+.nav-right-actions {
+    display: flex;
+    align-items: center;
+}
+
+.cart-btn {
+    background: #5e4350;
+    color: #ffffff !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(94, 67, 80, 0.15);
+    transition: all 0.3s ease;
+}
+
+.cart-btn:hover {
+    background: #8b3a4c !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(139, 58, 76, 0.25);
+}
+
+/* ==========================================================================
+   2. HERO СЕКЦИЈА
+   ========================================================================== */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1440px;
+    margin: 40px auto 0 auto;
+    padding: 40px 5%;
+    background: radial-gradient(circle at 80% 20%, #ffffff 0%, #f7edec 50%, #f2e1df 100%);
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #f0e2dc;
+}
+
+.decor-bubble {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(139, 58, 76, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+    filter: blur(40px);
+    pointer-events: none;
+}
+
+.bubble-1 { width: 300px; height: 300px; top: -50px; left: -50px; }
+.bubble-2 { width: 400px; height: 400px; bottom: -100px; left: 30%; }
+
+.hero-text {
+    flex: 1;
+    padding-right: 30px;
+}
+
+.hero-text h1 {
+    font-size: 54px;
+    font-family: 'Playfair Display', serif;
+    color: #3b272d;
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 18px;
+    color: #6e525a;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.btn {
+    display: inline-block;
+    background: #8b3a4c;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 14px 38px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 16px;
+    box-shadow: 0 8px 20px rgba(139, 58, 76, 0.2);
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: #6d2c3c !important;
+    transform: translateY(-2px);
+}
+
+.hero-icons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.hero-icons span {
+    background: #ffffff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    color: #5e4350;
+    border: 1px solid #f0e2dc;
+    font-weight: 500;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 450px;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(139, 58, 76, 0.08);
+}
+
+/* ==========================================================================
+   3. ПРОИЗВОДИ И МЕНИ СЕКЦИЈА (ЛУКСУЗЕН ПРОШИРЕН ДИЗАЈН)
+   ========================================================================== */
+.products-section {
+    padding: 40px 4% 80px 4%;
+    max-width: 1440px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    color: #3b272d;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #8b3a4c !important;
+    margin: 12px auto 0 auto;
+    border-radius: 2px;
+}
+
+/* Проширен Grid распоред за 4 картички на еден ред */
+.products-container {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 30px !important;
+    width: 100% !important;
+    max-width: 1440px !important;
+    margin: 0 auto !important;
+}
+
+@media (max-width: 1200px) {
+    .products-container {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+@media (max-width: 900px) {
+    .products-container {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .products-container {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+.product-card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 22px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(139, 58, 76, 0.05);
+    border: 1px solid #f0e2dc;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgba(139, 58, 76, 0.12);
+}
+
+.product-card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    background-color: #fbf7f4;
+    border-radius: 16px;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: #3b272d;
+    margin-bottom: 8px;
+}
+
+.product-card p {
+    font-size: 14px;
+    color: #6e525a;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.product-card .price {
+    font-size: 16px;
+    font-weight: 700;
+    color: #8b3a4c !important;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.product-card .badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #8b3a4c !important;
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    z-index: 2;
+}
+
+.add-to-cart-btn {
+    background: #f0e2dc;
+    color: #5e4350;
+    border: 2px solid #8b3a4c;
+    padding: 11px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 25px;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background: #8b3a4c !important;
+    color: #ffffff !important;
+    border-color: #8b3a4c !important;
+    box-shadow: 0 5px 15px rgba(139, 58, 76, 0.25) !important;
+}
+
+#modal-main-img {
+    width: 100% !important;
+    height: 280px !important;
+    object-fit: cover !important;
+    background-color: #ffffff !important;
+    display: block !important;
+    margin: 0 auto 15px auto !important;
+    border-radius: 14px !important;
+}
+
+/* ==========================================================================
+   4. КОШНИЧКА (SIDEBAR)
+   ========================================================================== */
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 380px;
+    height: 100%;
+    background: #ffffff;
+    box-shadow: -10px 0 30px rgba(139, 58, 76, 0.1);
+    z-index: 2000;
+    transition: right 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-sidebar.open {
+    right: 0;
+}
+
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(59, 39, 45, 0.3);
+    backdrop-filter: blur(4px);
+    z-index: 1999;
+    display: none;
+}
+
+.cart-overlay.open {
+    display: block;
+}
+
+.cart-sidebar-header {
+    padding: 24px;
+    background: #f7edec;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed #f0e2dc;
+}
+
+.cart-sidebar-header h2 {
+    font-family: 'Playfair Display', serif;
+    color: #3b272d;
+    font-size: 22px;
+}
+
+.close-cart-btn {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    color: #6e525a;
+    cursor: pointer;
+}
+
+.cart-items-container {
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #fbf7f4;
+    padding: 12px;
+    border-radius: 16px;
+    border: 1px solid #f0e2dc;
+}
+
+.cart-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.cart-item-details {
+    flex: 1;
+}
+
+.cart-item-details h4 {
+    color: #3b272d;
+    font-size: 14px;
+}
+
+.cart-item-details .price {
+    color: #8b3a4c !important;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.remove-item-btn {
+    background: transparent;
+    border: none;
+    color: #b8989f;
+    cursor: pointer;
+}
+
+.cart-sidebar-footer {
+    padding: 24px;
+    background: #f7edec;
+    border-top: 1px dashed #f0e2dc;
+}
+
+.total-price-wrapper {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 700;
+    color: #3b272d;
+    margin-bottom: 20px;
+}
+
+#cart-total-price {
+    color: #8b3a4c !important;
+}
+
+.checkout-btn {
+    width: 100%;
+    background: #8b3a4c;
+    color: #ffffff;
+    border: none;
+    padding: 15px;
+    border-radius: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.checkout-btn:hover {
+    background: #6d2c3c !important;
+}
+
+/* ==========================================================================
+   5. МЕНИ ФИЛТРИ И ПОТКАТЕГОРИИ КОПЧИЊА
+   ========================================================================== */
+.hero-icons .add-to-cart-btn,
+.hero-icons button,
+#drinks-subcategories .add-to-cart-btn,
+#drinks-subcategories button {
+    background-color: transparent !important;
+    color: #6e525a !important;
+    border: 2px solid #8b3a4c !important;
+    border-radius: 20px;
+    padding: 9px 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.hero-icons .add-to-cart-btn.active,
+.hero-icons button.active,
+#drinks-subcategories .add-to-cart-btn.active,
+#drinks-subcategories button.active {
+    background-color: #8b3a4c !important;
+    color: #ffffff !important;
+    border-color: #8b3a4c !important;
+}
+/* Hover efekt za podignuvanje na kartickata */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card-image-container img {
+    transition: transform 0.5s ease;
+}
+
+.card:hover .card-image-container img {
+    transform: scale(1.05);
+}
+
+/* Red za info (porcii i gramaza) */
+.card-info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 12px;
+    color: #a08c80;
+    border-top: 1px solid #f0e6e0;
+    padding-top: 8px;
+}
+
+/* Red za cena i brzi kopcinja */
+.price-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.btn-quick-add {
+    background-color: #5c4033;
+    color: white;
+    border: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: background 0.2s;
+}
+
+.btn-quick-add:hover {
+    background-color: #3d2c22;
+}

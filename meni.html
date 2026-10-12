@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ексклузивно Мени | Sweet Corner</title>
+  <link rel="stylesheet" href="web%20storm.css">
+  <style>
+    :root {
+      --bg-cream: #fbf7f4;
+      --card-bg: #ffffff;
+      --primary-burgundy: #8b3a4c;
+      --burgundy-dark: #6d2c3c;
+      --text-main: #3b272d;
+      --text-muted: #7a5e66;
+      --border-subtle: #ebd5ce;
+    }
+
+    body {
+      background-color: var(--bg-cream);
+      background-image: radial-gradient(var(--primary-burgundy) 1.2px, transparent 1.2px);
+      background-size: 26px 26px;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-main);
+      overflow-x: hidden;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 2px solid var(--primary-burgundy);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(139, 58, 76, 0.08);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 15px 30px;
+    }
+
+    .logo img {
+      height: 45px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 500;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--primary-burgundy);
+      font-weight: 600;
+    }
+
+    .dropdown {
+      position: relative;
+      padding-bottom: 10px;
+      margin-bottom: -10px;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ffffff;
+      min-width: 150px;
+      box-shadow: 0 12px 30px rgba(139, 58, 76, 0.18);
+      border-radius: 14px;
+      border: 1px solid var(--border-subtle);
+      overflow: hidden;
+      z-index: 100;
+      text-align: center;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content a {
+      color: var(--text-main);
+      padding: 12px 18px;
+      display: block;
+      font-size: 13px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .dropdown-content a:hover {
+      background: #f7edec;
+      color: var(--primary-burgundy);
+    }
+
+    .cart-btn-standard {
+      background: var(--primary-burgundy);
+      color: white;
+      border: none;
+      padding: 11px 22px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 13px;
+      box-shadow: 0 5px 15px rgba(139, 58, 76, 0.25);
+      transition: all 0.3s;
+    }
+
+    .cart-btn-standard:hover {
+      background: var(--burgundy-dark);
+    }
+
+    .menu-hero {
+      text-align: center;
+      padding: 40px 20px 20px 20px;
+      background: linear-gradient(180deg, rgba(139, 58, 76, 0.05) 0%, transparent 100%);
+    }
+
+    .category-pills {
+      display: inline-flex;
+      background: #ffffff;
+      border: 2px solid var(--primary-burgundy);
+      padding: 6px;
+      border-radius: 50px;
+      gap: 6px;
+      box-shadow: 0 8px 25px rgba(139, 58, 76, 0.15);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .pill-btn {
+      background: transparent;
+      border: none;
+      padding: 10px 24px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text-muted);
+      border-radius: 40px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .pill-btn:hover {
+      color: var(--primary-burgundy);
+    }
+
+    .pill-btn.active {
+      background: var(--primary-burgundy);
+      color: white;
+      box-shadow: 0 4px 15px rgba(139, 58, 76, 0.3);
+    }
+
+    .sub-pills-container {
+      display: none;
+      justify-content: center;
+      gap: 8px;
+      margin: 18px auto 0 auto;
+      max-width: 1100px;
+      flex-wrap: wrap;
+    }
+
+    .sub-pill {
+      background: #ffffff;
+      border: 1px solid var(--primary-burgundy);
+      padding: 7px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      color: var(--primary-burgundy);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .sub-pill:hover, .sub-pill.active {
+      background: var(--primary-burgundy);
+      color: white;
+      font-weight: 600;
+    }
+
+    .catalog-section {
+      padding: 30px 5% 100px 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+
+    @media (max-width: 1200px) {
+      .bento-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .bento-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .bento-grid { grid-template-columns: 1fr; }
+    }
+
+    .bento-card {
+      background: var(--card-bg);
+      border-radius: 26px;
+      padding: 20px;
+      border: 2px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(139, 58, 76, 0.08);
+      transition: all 0.4s ease;
+      cursor: pointer;
+    }
+
+    .bento-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--primary-burgundy);
+      box-shadow: 0 16px 40px rgba(139, 58, 76, 0.18);
+    }
+
+    .card-media {
+      position: relative;
+      width: 100%;
+      height: 310px;
+      border-radius: 18px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      background: #ffffff;
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.6s ease;
+    }
+
+    .bento-card:hover .card-media img {
+      transform: scale(1.05);
+    }
+
+    .badge-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: var(--primary-burgundy);
+      color: white;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      z-index: 2;
+    }
+
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
+      color: var(--text-main);
+      margin: 0 0 6px 0;
+    }
+
+    .card-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin: 0 0 18px 0;
+      flex-grow: 1;
+    }
+
+    .action-pill-btn {
+      background: #f7edec;
+      color: var(--primary-burgundy);
+      border: 1.5px solid var(--primary-burgundy);
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .action-pill-btn:hover {
+      background: var(--primary-burgundy);
+      color: white;
+      box-shadow: 0 4px 15px rgba(139, 58, 76, 0.25);
+    }
+
+    .elite-modal-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(59, 39, 45, 0.5);
+      backdrop-filter: blur(5px);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 3000;
+    }
+
+    .elite-modal-content {
+      background: #ffffff;
+      border: 2px solid var(--primary-burgundy);
+      padding: 30px;
+      border-radius: 28px;
+      max-width: 440px;
+      width: 90%;
+      position: relative;
+      box-shadow: 0 20px 50px rgba(139, 58, 76, 0.25);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 18px; right: 22px;
+      font-size: 24px;
+      color: var(--primary-burgundy);
+      cursor: pointer;
+    }
+    .elite-cart-drawer {
+      position: fixed;
+      top: 0; right: -420px;
+      width: 380px; height: 100%;
+      background: #ffffff;
+      border-left: 2px solid var(--primary-burgundy);
+      z-index: 3500;
+      transition: right 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      box-shadow: -15px 0 40px rgba(139, 58, 76, 0.15);
+    }
+
+    .elite-cart-drawer.open { right: 0; }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">
+      <a href="web%20mk.html"><img src="logo3.png" alt="Sweet Corner" /></a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="web%20mk.html">Почетна</a></li>
+      <li><a href="za-nas.html">За нас</a></li>
+      <li><a href="meni.html" class="active">Мени</a></li>
+      <li><a href="kontakt.html">Контакт</a></li>
+      <li class="dropdown">
+        <a href="#">Јазици ▼</a>
+        <div class="dropdown-content">
+          <a href="meni.html">Македонски</a>
+          <a href="menu.html">English</a>
+        </div>
+      </li>
+    </ul>
+    <div class="nav-right-actions">
+      <button class="cart-btn-standard" onclick="toggleCart()">🛒 Кошничка (<span id="cart-counter">0</span>)</button>
+    </div>
+  </nav>
+</header>
+
+<div class="menu-hero">
+  <div class="category-pills">
+    <button class="pill-btn active" onclick="switchCategory('torti')">🍰 Торти</button>
+    <button class="pill-btn" onclick="switchCategory('mafini')">🧁 Мафини</button>
+    <button class="pill-btn" onclick="switchCategory('palacinki')">🥞 Палачинки</button>
+    <button class="pill-btn" onclick="switchCategory('vafli')">🧇 Вафли</button>
+    <button class="pill-btn" onclick="switchCategory('napitoci')">☕ Напитоци</button>
+  </div>
+
+  <div class="sub-pills-container" id="sub-pills-container">
+    <button class="sub-pill active" onclick="switchSubCategory('site')">Сите пијалоци</button>
+    <button class="sub-pill" onclick="switchSubCategory('kafinja')">Кафиња</button>
+    <button class="sub-pill" onclick="switchSubCategory('smutinja')">Смутиња</button>
+    <button class="sub-pill" onclick="switchSubCategory('limonadi')">Лимонади</button>
+    <button class="sub-pill" onclick="switchSubCategory('kokteli')">Коктели</button>
+    <button class="sub-pill" onclick="switchSubCategory('mocktails')">Моктели</button>
+  </div>
+</div>
+
+<section class="catalog-section">
+  <div class="bento-grid" id="bento-grid"></div>
+</section>
+
+
+<div class="elite-modal-overlay" id="elite-modal" onclick="closeModalOutside(event)">
+  <div class="elite-modal-content" onclick="event.stopPropagation()">
+    <span class="modal-close" onclick="closeModal()">&times;</span>
+    <div class="card-media" style="height: 300px; margin-bottom: 15px; background: #ffffff;">
+      <img id="m-img" src="" alt="" style="width:100%; height:100%; object-fit:contain;">
+    </div>
+    <h3 id="m-title" style="font-family:'Playfair Display',serif; font-size:22px; color:var(--text-main); margin:0 0 8px 0;"></h3>
+    <p id="m-desc" style="font-size:13px; color:var(--text-muted); margin:0 0 16px 0; line-height:1.5;"></p>
+
+    <label style="font-size:11px; font-weight:600; color:var(--primary-burgundy); text-transform:uppercase; display:block; margin-bottom:6px; letter-spacing:1px;">Избери варијанта:</label>
+    <select id="m-select" style="width:100%; padding:12px; background:#fbf7f4; border:1px solid var(--primary-burgundy); color:var(--text-main); border-radius:12px; margin-bottom:16px; font-family:'Poppins',sans-serif; outline:none;" onchange="calculatePrice()"></select>
+
+    <div style="display:flex; justify-content:space-between; align-items:center; background:#fbf7f4; padding:10px 16px; border-radius:12px; margin-bottom:18px; border:1px solid var(--primary-burgundy);">
+      <span style="font-size:12px; color:var(--text-muted);">Количина:</span>
+      <div style="display:flex; align-items:center; gap:14px;">
+        <button style="width:30px; height:30px; border-radius:50%; border:1px solid var(--primary-burgundy); background:transparent; color:var(--primary-burgundy); cursor:pointer; font-weight:bold;" onclick="changeQty(-1)">-</button>
+        <span id="m-qty" style="font-weight:600; font-size:16px; color:var(--text-main);">1</span>
+        <button style="width:30px; height:30px; border-radius:50%; border:1px solid var(--primary-burgundy); background:var(--primary-burgundy); color:white; cursor:pointer; font-weight:bold;" onclick="changeQty(1)">+</button>
+      </div>
+    </div>
+
+    <div id="m-price" style="font-size:20px; font-weight:700; color:var(--primary-burgundy); margin-bottom:20px; text-align:center;">0,00 ден</div>
+    <button class="action-pill-btn" style="background:var(--primary-burgundy); color:white; font-weight:600; padding:14px;" onclick="addToCartFinal()">Потврди и додај</button>
+  </div>
+</div>
+
+
+<div class="elite-cart-drawer" id="elite-cart">
+  <div style="padding:24px; background:#f7edec; display:flex; justify-content:space-between; align-items:center; border-bottom:2px solid var(--primary-burgundy);">
+    <h3 style="font-family:'Playfair Display',serif; margin:0; font-size:20px; color:var(--text-main);">Ваша Кошничка</h3>
+    <span style="font-size:24px; cursor:pointer; color:var(--primary-burgundy);" onclick="toggleCart()">&times;</span>
+  </div>
+  <div id="cart-items-box" style="padding:20px; flex:1; overflow-y:auto; display:flex; flex-direction:column; gap:14px;"></div>
+  <div style="padding:24px; background:#f7edec; border-top:2px solid var(--primary-burgundy);">
+    <div style="display:flex; justify-content:space-between; font-weight:700; font-size:18px; margin-bottom:18px; color:var(--text-main);">
+      <span>Вкупно:</span>
+      <span id="cart-total-sum" style="color:var(--primary-burgundy);">0,00 ден</span>
+    </div>
+    <button class="action-pill-btn" style="background:var(--primary-burgundy); color:white; font-weight:600; padding:15px;" onclick="checkoutAction()">Нарачај веднаш ✨</button>
+  </div>
+</div>
+
+<script>
+  const catalog = [
+    { cat: 'torti', name: 'Red Velvet торта', desc: 'Легендарни какао-црвени кори со крем од крем сирење и слатка павлака.', img: 'red%20v.jpg', badge: 'Ново', options: { 'Парче': 160, '15x10cm (8 парчиња)': 1250, '30x10cm (16 парчиња)': 2400 } },
+    { cat: 'torti', name: 'Чоколадно небо', desc: 'Интензивни чоколадни кори со богат фил од млечно и темно белгиско чоколадо.', img: 'chocolate cake.jpg', badge: 'Бестселер', options: { 'Парче': 130, 'Цела торта (30 парчиња)': 3500 } },
+    { cat: 'torti', name: 'Фантазија од јагоди', desc: 'Свежи јагоди, воздушест ванила крем и сочни светли кори.', img: 'Strawberry%20dream.JPG', badge: 'Премиум', options: { 'Парче': 130, 'Цела торта (30 парчиња)': 3500 } },
+    { cat: 'torti', name: 'Розови соништа', desc: 'Кори со шумски малини и лесен беспрекорен крем од маскарпоне.', img: 'pink raspberry.jpg', badge: 'Омилено', options: { 'Парче': 130, 'Цела торта (30 парчиња)': 3500 } },
+    { cat: 'torti', name: 'Сникерс торта', desc: 'Чоколадно задоволство со крцкави солени кикирики и домашна солена карамела.', img: 'snickers.jpg', badge: 'Лимитирано', options: { 'Парче': 140, 'Цела торта (R-22 cm)': 750, 'Цела торта (R-28 cm)': 1350 } },
+    { cat: 'torti', name: 'Лимон и боровинка', desc: 'Освежителен крем со лимон и богат фил од шумски боровинки.', img: 'limon%20borovnica%20torta.jpg', badge: 'Освежително', options: { 'Парче': 130, '15x10cm (8 парчиња)': 1100, '30x10cm (16 парчиња)': 2200 } },
+    { cat: 'torti', name: 'Рафаело торта', desc: 'Нежен млечен крем со богат вкус на кокос и крцкави бадеми.', img: 'rafaelo%20torta.jpg', badge: 'Егзотично', options: { 'Парче': 140, 'Цела торта (R-22 cm)': 800, 'Цела торта (R-28 cm)': 1450 } },
+    { cat: 'torti', name: 'Орео торта', desc: 'Богати чоколадни кори, нежен маскарпоне крем и многу крцкави Орео парчиња.', img: 'oreo.jpg', badge: 'Омилено', options: { 'Парче': 140, 'Цела торта (R-22 cm)': 800, 'Цела торта (R-28 cm)': 1450 } },
+    { cat: 'torti', name: 'Мача торта', desc: 'Воздушести пандишпани со врвен јапонски мача зелен чај и крем од бела чоколада.', img: 'matcha.jpg', badge: 'Најново', options: { 'Парче': 150, '15x10cm (8 парчиња)': 1200, '30x10cm (16 парчиња)': 2300 } },
+    { cat: 'torti', name: 'Манго торта', desc: 'Нежен ванила пандишпан комбиниран со мус од маскарпоне и сочно манго.', img: 'mango.jpg', badge: 'Тропско', options: { 'Парче': 140, '15x10cm (8 парчиња)': 1100, '30x10cm (16 парчиња)': 2200 } },
+    { cat: 'torti', name: 'Тирамису торта', desc: 'Пишкоти натопени во еспресо кафе и ликер, прелиени со маскарпоне крем и какао.', img: 'tiramisu.jpg', badge: 'Класик', options: { 'Парче': 140, 'Цела торта (R-22 cm)': 800, 'Цела торта (R-28 cm)': 1450 } },
+    { cat: 'torti', name: 'Конфети торта', desc: 'Мек ванила пандишпан преполн со шарени шеќерни мрвици и путер-крем.', img: 'confetti.jpg', badge: 'Забава', options: { 'Парче': 130, '15x10cm (8 парчиња)': 1100, '30x10cm (16 парчиња)': 2200 } },
+
+    { cat: 'mafini', name: 'Цреша Мафин', desc: 'Богат чоколаден мафин исполнет со сочни цели цреши и кремаста глазура.', img: 'cherry%20muffin.jpg', badge: 'Ново', options: { '1 парче': 120, 'Пакет од 4 парчиња': 440, 'Пакет од 6 парчиња': 640 } },
+    { cat: 'mafini', name: 'Безглутенски мафин со кикирики', desc: 'Сочна комбинација од банана и путер од кикирики во 100% безглутенско тесто.', img: 'pb-banana-muffin.jpg', badge: 'Без Глутен', options: { '1 парче': 110, 'Пакување од 4 парчиња': 400, 'Пакување од 6 парчиња': 580 } },
+    { cat: 'mafini', name: 'Мафин со брусница и портокал', desc: 'Миризливо тесто со свежа кора од портокал и сочни брусници.', img: 'cranberry-orange.jpg', badge: 'Освежително', options: { '1 парче': 95, 'Пакување од 4 парчиња': 340, 'Пакување од 6 парчиња': 490 } },
+    { cat: 'mafini', name: 'Дупло чоколаден мафин', desc: 'Интензивно какао тесто преполно со капки од млечно и темно белгиско чоколадо.', img: 'double-chocolate.jpg', badge: 'Омилено', options: { '1 парче': 100, 'Пакување од 4 парчиња': 360, 'Пакување од 6 парчиња': 520 } },
+    { cat: 'mafini', name: 'Мафин со шумско овошје', desc: 'Воздушесто тесто преполно со слатко-кисели шумски плодови.', img: 'forest-fruit.jpg', badge: 'Лимитирано', options: { '1 парче': 95, 'Пакување од 4 парчиња': 340, 'Пакување од 6 парчиња': 490 } },
+    { cat: 'mafini', name: 'Дубаи чоколадо мафин', desc: 'Чоколадно тесто со крцкав кадаиф, крем од фстаци и белгиско чоколадо.', img: 'dubai-muffin.jpg', badge: 'Премиум', options: { '1 парче': 180, 'Пакување од 4 парчиња': 680, 'Пакување од 6 парчиња': 990 } },
+    { cat: 'mafini', name: 'Мафин со кокос', desc: 'Воздушесто тесто со богат вкус на кокос и нежен бел млечен крем.', img: 'coconut-muffin.jpg', badge: 'Тропски рај', options: { '1 парче': 90, 'Пакување од 4 парчиња': 320, 'Пакување од 6 парчиња': 450 } },
+    { cat: 'mafini', name: 'Фереро Роше мафин', desc: 'Мафин полнет со Нутела, цел лешник и крцкав чоколаден прелив со лешници.', img: 'ferrero-muffin.jpg', badge: 'Премиум', options: { '1 парче': 120, 'Пакување од 4 парчиња': 440, 'Пакување од 6 парчиња': 640 } },
+    { cat: 'mafini', name: 'Мафин со праски', desc: 'Воздушесто ванила тесто со парчиња праски и крцкав посип.', img: 'peach-muffin.jpg', badge: 'Летен хит', options: { '1 парче': 95, 'Пакување од 4 парчиња': 340, 'Пакување од 6 парчиња': 490 } },
+
+    { cat: 'palacinki', name: 'Класична Нутела палачинка', desc: 'Палачинка премачкана со богат слој оригинален Нутела крем и банана.', img: 'nutela-banana.jpg', badge: 'Омилено', options: { '1 парче': 130, 'Пакување од 2 парчиња': 240 } },
+    { cat: 'palacinki', name: 'Палачинка со фстак и бела чоколада', desc: 'Исполнета со премиум крем од 100% фстак, бела чоколада и мелени фстаци.', img: 'pistachio-pancake.jpg', badge: 'Премиум', options: { '1 парче': 170, 'Пакување од 2 парчиња': 320 } },
+    { cat: 'palacinki', name: 'Палачинка со јагоди и маскарпоне', desc: 'Палачинка со свежи јагоди, богат прелив и крем од маскарпоне.', img: 'berry-pancake.jpg', badge: 'Освежително', options: { '1 парче': 140, 'Пакување од 2 парчиња': 260 } },
+    { cat: 'palacinki', name: 'Палачинка со шумско овошје', desc: 'Палачинка со микс од шумско овошје, домашен прелив и маскарпоне фил.', img: 'forest-fruit-pancake.jpg', badge: 'Ново', options: { '1 парче': 140, 'Пакување од 2 парчиња': 260 } },
+    { cat: 'palacinki', name: 'Рафаело палачинка', desc: 'Палачинка со млечен крем со вкус на кокос, маскарпоне и крцкави бадеми.', img: 'rafaello-pancake.jpg', badge: 'Егзотично', options: { '1 парче': 150, 'Пакување од 2 парчиња': 280 } },
+
+    { cat: 'vafli', name: 'Вафла со шумско овошје', desc: 'Белгиска вафла прелиена со богат сируп од шумско овошје и топено бело чоколадо.', img: 'waffle-fruit.jpg', badge: 'Популарно', options: { '1 парче': 160, 'Порција со сладолед': 210 } },
+    { cat: 'vafli', name: 'Вафла со нутела и банана', desc: 'Белгиска вафла премачкана со Нутела, свежи парчиња банана, јагоди и сладолед.', img: 'waffle-nutella.jpg', badge: 'Класик', options: { 'Стандардна порција': 150, 'Порција со сладолед': 200 } },
+    { cat: 'vafli', name: 'Кралска фстак вафла', desc: 'Белгиска вафла со крем од чисти фстаци, свежи јагоди и сладолед од фстак.', img: 'pistachio-strawberry-waffle.jpg', badge: 'Премиум', options: { 'Стандардна порција': 240, 'Дупла вафла': 360 } },
+    { cat: 'vafli', name: 'Lotus карамел вафла', desc: 'Белгиска вафла со оригинален Lotus Biscoff намаз, бисквити и сладолед.', img: 'lotus-waffle.jpg', badge: 'Тренди', options: { 'Стандардна порција': 180, 'Дупла порција': 260 } },
+    { cat: 'vafli', name: 'Вафла со чоколадни капки', desc: 'Белгиска вафла со чоколадни капки, топол чоколаден сос и шлаг.', img: 'chocolate-chip-waffle.jpg', badge: 'Популарно', options: { 'Стандардна порција': 150, 'Со топка сладолед': 210, 'Дупла порција': 280 } },
+
+    { cat: 'napitoci', sub: 'kafinja', name: 'Blush Розово Лате', desc: 'Кремасто еспресо лате со суптилен вкус на јагода, ванила и шлаг.', img: 'pink-latte.jpg', badge: 'Најпопуларно', options: { 'Стандардно': 120, 'Големо': 150 } },
+    { cat: 'napitoci', sub: 'kafinja', name: 'Кремасто Капучино', desc: 'Совршено еспресо со топло млеко и кремаста млечна пена.', img: 'capuccino%20burgundy.jpg', badge: 'Класик', options: { 'Стандардно': 100, 'Големо': 130 } },
+    { cat: 'napitoci', sub: 'kafinja', name: 'Афогото', desc: 'Италијански десерт со топка сладолед од ванила и свежо еспресо.', img: 'affogato.jpg', badge: 'Омилено', options: { 'Класично Афогото': 160, 'Слатко со карамела': 190 } },
+    { cat: 'napitoci', sub: 'kafinja', name: 'Ладно Фстак Лате', desc: 'Двојно еспресо со ладно млеко, крем од фстаци и сечкани фстаци.', img: 'iced-pistachio-latte.jpg', badge: 'Популарно', options: { 'Стандардно': 190, 'Големо (XL)': 230 } },
+    { cat: 'napitoci', sub: 'kafinja', name: 'Флет Вајт (Flat White)', desc: 'Интензивен вкус од две шотови еспресо дополнети со парено млеко.', img: 'flat-white.jpg', badge: 'Класика', options: { 'Стандардна порција': 140, 'Со овесно млеко': 180 } },
+    { cat: 'napitoci', sub: 'kafinja', name: 'Далгона', desc: 'Совршена пена од најквалитетни зрна кафе и многу млеко.', img: 'dalgona.jpg', badge: 'Омилено', options: { 'Стандардна чаша': 180 } },
+    { cat: 'napitoci', sub: 'kafinja', name: 'Мача Лате', desc: 'Јапонска мача изматена со млеко по избор и малку мед.', img: 'matcha-latte.jpg', badge: 'Здрав избор', options: { 'Топла Мача': 160, 'Ладна Мача': 170, 'Со овесно/бадемово': 200 } },
+    { cat: 'napitoci', sub: 'kafinja', name: 'Бела Чоколадна Мока', desc: 'Интензивно еспресо со топено бело чоколадо, млеко и шлаг.', img: 'white-mocha.jpg', badge: 'Зимска бајка', options: { 'Топла Мока': 170, 'Ладна Ајс Мока': 190, 'Голема XL порција': 210 } },
+    { cat: 'napitoci', sub: 'kafinja', name: 'Ладно Кокосово Кафе', desc: 'Еспресо прелиено преку коцки мраз, кокосово млеко и сируп.', img: 'coconut-iced-coffee.jpg', badge: 'Тренди', options: { 'Стандардна чаша': 160 } },
+
+    { cat: 'napitoci', sub: 'smutinja', name: 'Розево Blush Смути', desc: 'Природен микс од јагоди, банана, бадемово млеко и хранлив мед.', img: 'strawberry-smoothie.jpg', badge: 'Здраво', options: { 'Стандардна чаша': 160 } },
+    { cat: 'napitoci', sub: 'smutinja', name: 'Тропско смути со Манго', desc: 'Смути со манго, портокал, ананас и кокосова вода.', img: 'mango-smoothie.jpg', badge: 'Егзотично', options: { 'Стандардна чаша': 170 } },
+    { cat: 'napitoci', sub: 'smutinja', name: 'Зелено Смути', desc: 'Детокс микс од свеж спанаќ, лимета, авокадо и кокосова вода.', img: 'green-glow-smoothie.jpg', badge: 'Детокс', options: { 'Стандардна чаша': 170, 'Со протеин од грашок': 210 } },
+    { cat: 'napitoci', sub: 'smutinja', name: 'Смути со шумско овошје', desc: 'Микс од капини, малини, боровинки, јагоди, грчки јогурт и мед.', img: 'berry-antioxidant.jpg', badge: 'Антиоксиданс', options: { 'Стандардна чаша': 180, 'Со овесно млеко': 190, 'XL порција': 220 } },
+    { cat: 'napitoci', sub: 'smutinja', name: 'Протеинско смути', desc: 'Смути со путер од кикирики, whey протеин, банана и овесни снегулки.', img: 'peanut-butter-protein.jpg', badge: 'Фитнес', options: { 'Стандардно смути': 190, 'Со whey протеин од ванила': 240 } },
+
+    { cat: 'napitoci', sub: 'limonadi', name: 'Розова лимонада (Pink Dragon)', desc: 'Свеж цеден лимон, сируп од малина и драгон фрут.', img: 'pink-dragon-lemonade.webp', badge: 'Најпопуларно', options: { 'Стандардна чаша': 140, 'Голема XL чаша': 170 } },
+    { cat: 'napitoci', sub: 'limonadi', name: 'Лимонада со нане и ѓумбир', desc: 'Цеден лимон, сок од ѓумбир, изгмечено нане и мед.', img: 'mint-ginger-lemonade.jpg', badge: 'Детокс', options: { 'Стандардна чаша': 130, 'Голема XL чаша': 160 } },
+    { cat: 'napitoci', sub: 'limonadi', name: 'Лимонада со маракуја', desc: 'Тропска комбинација од свеж лимон, маракуја и минерална вода.', img: 'passionfruit-lemonade.jpg', badge: 'Егзотично', options: { 'Стандардна чаша': 150, 'Голема XL чаша': 180 } },
+    { cat: 'napitoci', sub: 'limonadi', name: 'Лимонада со јагода и босилек', desc: 'Свежи јагоди, босилек, цеден лимон и домашна сируп-база.', img: 'strawberry-basil-lemonade.jpg', badge: 'Летен хит', options: { 'Стандардна чаша': 150, 'Голема XL чаша': 180 } },
+    { cat: 'napitoci', sub: 'limonadi', name: 'Лаванда лимонада', desc: 'Уникатна лимонада со сируп од органска лаванда и свеж лимон.', img: 'lavender-lemonade.webp', badge: 'Уникатно', options: { 'Стандардна чаша': 160 } },
+
+    { cat: 'napitoci', sub: 'kokteli', name: 'Blush розов Џин Тоник', desc: 'Премиум розов џин со арома на малина, розов тоник и плодови.', img: 'pink-gin-tonic.jpg', badge: 'Премиум', options: { 'Стандардна чаша': 240 } },
+    { cat: 'napitoci', sub: 'kokteli', name: 'Аперол Шприц', desc: 'Aperol, Prosecco пенливо вино, минерална вода и портокал.', img: 'aperol-spritz.jpg', badge: 'Класик', options: { 'Стандардна чаша': 260 } },
+    { cat: 'napitoci', sub: 'kokteli', name: 'Еспресо Мартини', desc: 'Свежо еспресо, премиум вотка, ликер од кафе и какао сируп.', img: 'espresso-martini.jpg', badge: 'Елеганција', options: { 'Стандардна чаша': 270 } },
+    { cat: 'napitoci', sub: 'kokteli', name: 'Јагода Мохито', desc: 'Бел рум, сочни јагоди, свежо нане, лимета и газирана вода.', img: 'strawberry-mojito.jpg', badge: 'Освежување', options: { 'Стандардна чаша': 250 } },
+    { cat: 'napitoci', sub: 'kokteli', name: 'Маракуја Маргарита', desc: 'Текила, Triple Sec, тропско пире од маракуја и сол.', img: 'passionfruit-margarita.jpg', badge: 'Егзотично', options: { 'Стандардна чаша': 280 } },
+    { cat: 'napitoci', sub: 'kokteli', name: 'Пина Колада', desc: 'Кремаст бел рум, сок од ананас, кокосов крем и вишна.', img: 'pina-colada.jpg', badge: 'Тропски рај', options: { 'Стандардна чаша': 260 } },
+    { cat: 'napitoci', sub: 'kokteli', name: 'Космополитан', desc: 'Вотка со цитрус, Triple Sec, сок од брусница и цедена лимета.', img: 'cosmopolitan.jpg', badge: 'Шик', options: { 'Стандардна чаша': 250 } },
+    { cat: 'napitoci', sub: 'kokteli', name: 'Хуго Шприц', desc: 'Ликер од боз, Prosecco вино, минерална вода, нане и лимета.', img: 'hugo-spritz.jpg', badge: 'Ароматично', options: { 'Стандардна чаша': 250 } },
+    { cat: 'napitoci', sub: 'kokteli', name: 'Розова Палома', desc: 'Текила Blanco, свеж сок од розов грејпфрут, сода и лимета.', img: 'pink-paloma.jpg', badge: 'Тренди', options: { 'Стандардна чаша': 270 } },
+
+    { cat: 'napitoci', sub: 'mocktails', name: 'Розов Мохито Моктел', desc: 'Свежи јагоди и малини, нане, лимета и газирана вода.', img: 'pink-mojito-mocktail.jpg', badge: 'Безалкохолно', options: { 'Стандардна чаша': 160 } },
+    { cat: 'napitoci', sub: 'mocktails', name: 'Кокос Ананас Моктел', desc: 'Кремаст кокосов крем, сочен сок од ананас и сируп од ванила.', img: 'pina-colada-mocktail.jpg', badge: 'Тропско', options: { 'Стандардна чаша': 170 } },
+    { cat: 'napitoci', sub: 'mocktails', name: 'Цитрус Шприц Моктел', desc: 'Цитрусен сируп, безалкохолно пенливо вино и тоник.', img: 'citrus-spritz-mocktail.jpg', badge: 'Летен хит', options: { 'Стандардна чаша': 180 } },
+    { cat: 'napitoci', sub: 'mocktails', name: 'Маракуја Боз Моктел', desc: 'Пире од маракуја, сируп од боз, сок од лимета и газирана вода.', img: 'passionfruit-elderflower-mocktail.jpg', badge: 'Ароматично', options: { 'Стандардна чаша': 170 } },
+    { cat: 'napitoci', sub: 'mocktails', name: 'Грејпфрут Босилек Моктел', desc: 'Сок од розов грејпфрут, изгмечен босилек и тоник.', img: 'grapefruit-basil-mocktail.jpg', badge: 'Тренди', options: { 'Стандардна чаша': 160 } }
+  ];
+
+  let activeCat = 'torti';
+  let activeSub = 'site';
+  let currentSelection = null;
+  let cartData = JSON.parse(localStorage.getItem('eliteCart')) || [];
+
+  window.onload = () => {
+    buildCatalog('torti');
+    refreshCartUI();
+  };
+
+  function switchCategory(category) {
+    activeCat = category;
+    document.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+
+    const subContainer = document.getElementById('sub-pills-container');
+    if(category === 'napitoci') {
+      subContainer.style.display = 'flex';
+      switchSubCategory('site');
+    } else {
+      subContainer.style.display = 'none';
+      buildCatalog(category);
+    }
+  }
+
+  function switchSubCategory(sub) {
+    activeSub = sub;
+    document.querySelectorAll('.sub-pill').forEach(p => p.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+    buildCatalog('napitoci', sub);
+  }
+
+  function buildCatalog(cat, sub = 'site') {
+    const grid = document.getElementById('bento-grid');
+    grid.innerHTML = '';
+
+    const list = catalog.filter(item => {
+      if(item.cat !== cat) return false;
+      if(cat === 'napitoci' && sub !== 'site' && item.sub !== sub) return false;
+      return true;
+    });
+
+    list.forEach(el => {
+      const card = document.createElement('div');
+      card.className = 'bento-card';
+      card.innerHTML = `
+        <div>
+          <div class="card-media">
+            <div class="badge-tag">${el.badge}</div>
+            <img src="${el.img}" alt="${el.name}">
+          </div>
+          <h3 class="card-title">${el.name}</h3>
+          <p class="card-desc">${el.desc}</p>
+        </div>
+        <div class="card-action-bar">
+          <button class="action-pill-btn" onclick='openModal(${JSON.stringify(el)})'>Одбери опција</button>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  function openModal(item) {
+    currentSelection = item;
+    document.getElementById('m-title').innerText = item.name;
+    document.getElementById('m-desc').innerText = item.desc;
+    document.getElementById('m-img').src = item.img;
+    document.getElementById('m-qty').innerText = 1;
+
+    const select = document.getElementById('m-select');
+    select.innerHTML = '';
+    for(const key in item.options) {
+      const opt = document.createElement('option');
+      opt.value = key;
+      opt.innerText = `${key} — ${item.options[key]} ден`;
+      select.appendChild(opt);
+    }
+    calculatePrice();
+    document.getElementById('elite-modal').style.display = 'flex';
+  }
+
+  function closeModal() {
+    document.getElementById('elite-modal').style.display = 'none';
+  }
+  function closeModalOutside(e) {
+    if(e.target.id === 'elite-modal') closeModal();
+  }
+
+  function changeQty(val) {
+    const qNode = document.getElementById('m-qty');
+    let q = parseInt(qNode.innerText) + val;
+    if(q < 1) q = 1;
+    qNode.innerText = q;
+    calculatePrice();
+  }
+
+  function calculatePrice() {
+    const optKey = document.getElementById('m-select').value;
+    const qty = parseInt(document.getElementById('m-qty').innerText);
+    const unitPrice = currentSelection.options[optKey] || 0;
+    document.getElementById('m-price').innerText = `${(unitPrice * qty).toLocaleString('de-DE')},00 ден`;
+  }
+
+  function addToCartFinal() {
+    const optKey = document.getElementById('m-select').value;
+    const qty = parseInt(document.getElementById('m-qty').innerText);
+    const price = currentSelection.options[optKey];
+
+    const found = cartData.find(x => x.title === currentSelection.name && x.option === optKey);
+    if(found) found.qty += qty;
+    else cartData.push({ title: currentSelection.name, option: optKey, price, qty, img: currentSelection.img });
+
+    localStorage.setItem('eliteCart', JSON.stringify(cartData));
+    refreshCartUI();
+    closeModal();
+    toggleCart();
+  }
+
+  function toggleCart() {
+    document.getElementById('elite-cart').classList.toggle('open');
+  }
+
+  function refreshCartUI() {
+    const box = document.getElementById('cart-items-box');
+    box.innerHTML = '';
+    let total = 0, count = 0;
+
+    cartData.forEach((item, idx) => {
+      total += item.price * item.qty;
+      count += item.qty;
+      const row = document.createElement('div');
+      row.style.cssText = "display:flex; align-items:center; gap:12px; background:#fbf7f4; padding:12px; border-radius:14px; border:1px solid var(--primary-burgundy);";
+      row.innerHTML = `
+        <img src="${item.img}" style="width:48px; height:48px; object-fit:cover; border-radius:10px;">
+        <div style="flex:1;">
+          <h4 style="margin:0; font-size:13px; color:var(--text-main);">${item.title}</h4>
+          <p style="margin:0; font-size:11px; color:var(--text-muted);">${item.option}</p>
+          <span style="font-size:12px; font-weight:700; color:var(--primary-burgundy);">${item.qty} x ${item.price} ден</span>
+        </div>
+        <button onclick="removeCartItem(${idx})" style="background:none; border:none; color:var(--text-muted); cursor:pointer; font-size:16px;">✕</button>
+      `;
+      box.appendChild(row);
+    });
+
+    document.getElementById('cart-counter').innerText = count;
+    document.getElementById('cart-total-sum').innerText = `${total.toLocaleString('de-DE')},00 ден`;
+  }
+
+  function removeCartItem(index) {
+    cartData.splice(index, 1);
+    localStorage.setItem('eliteCart', JSON.stringify(cartData));
+    refreshCartUI();
+  }
+
+  function checkoutAction() {
+    if(cartData.length === 0) { alert('Кошничката е празна!'); return; }
+    alert('Ви благодариме на нарачката! Sweet Corner ја прими вашата нарачка. ✨');
+    cartData = [];
+    localStorage.removeItem('eliteCart');
+    refreshCartUI();
+    toggleCart();
+  }
+</script>
+
+</body>
+</html>

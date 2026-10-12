@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакт | Sweet Corner</title>
+
+    <link rel="stylesheet" href="web%20storm.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-cream: #fbf7f4;
+            --card-bg: #ffffff;
+            --primary-burgundy: #8b3a4c;
+            --burgundy-dark: #6d2c3c;
+            --text-main: #3b272d;
+            --text-muted: #7a5e66;
+            --border-subtle: #ebd5ce;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            background-image: radial-gradient(var(--primary-burgundy) 1.2px, transparent 1.2px);
+            background-size: 26px 26px;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 2px solid var(--primary-burgundy);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(139, 58, 76, 0.08);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 15px 30px;
+        }
+
+        .logo img {
+            height: 45px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-burgundy);
+            font-weight: 600;
+        }
+
+        .dropdown {
+            position: relative;
+            padding-bottom: 10px;
+            margin-bottom: -10px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ffffff;
+            min-width: 150px;
+            box-shadow: 0 12px 30px rgba(139, 58, 76, 0.18);
+            border-radius: 14px;
+            border: 1px solid var(--border-subtle);
+            overflow: hidden;
+            z-index: 100;
+            text-align: center;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: var(--text-main);
+            padding: 12px 18px;
+            display: block;
+            font-size: 13px;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .dropdown-content a:hover {
+            background: #f7edec;
+            color: var(--primary-burgundy);
+        }
+
+
+        .contact-page-section {
+            padding: 60px 5% 80px 5%;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .contact-wrapper {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info-side, .contact-form-side {
+            flex: 1;
+            min-width: 310px;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 28px;
+            box-shadow: 0 10px 30px rgba(139, 58, 76, 0.08);
+            border: 2px solid var(--border-subtle);
+        }
+
+        .contact-tag {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary-burgundy);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .contact-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 38px;
+            color: var(--text-main);
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .contact-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-bottom: 30px;
+        }
+
+        .info-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .info-icon {
+            width: 45px;
+            height: 45px;
+            background-color: #f7edec;
+            border: 1px solid var(--border-subtle);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .info-text h4 {
+            color: var(--text-main);
+            font-size: 14px;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .info-text p {
+            color: var(--text-muted);
+            font-size: 13px;
+            margin: 2px 0 0 0;
+        }
+
+        .social-section {
+            margin-top: 25px;
+        }
+
+        .social-section h4 {
+            color: var(--text-main);
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background-color: #f7edec;
+            color: var(--primary-burgundy);
+            border: 1px solid var(--border-subtle);
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            background-color: var(--primary-burgundy);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .contact-form-side h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            color: var(--text-main);
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 13px 16px;
+            border: 1.5px solid var(--border-subtle);
+            border-radius: 14px;
+            font-size: 14px;
+            font-family: 'Poppins', sans-serif;
+            outline: none;
+            background-color: #fffcfd;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+            color: var(--text-main);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-burgundy);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: var(--primary-burgundy);
+            color: #ffffff;
+            border: none;
+            padding: 14px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(139, 58, 76, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: var(--burgundy-dark);
+            transform: translateY(-2px);
+        }
+
+        .map-section {
+            max-width: 1300px;
+            margin: 40px auto 0 auto;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(139, 58, 76, 0.08);
+            border: 2px solid var(--border-subtle);
+            background: #ffffff;
+            padding: 10px;
+        }
+
+        .map-section iframe {
+            width: 100%;
+            height: 400px;
+            border: 0;
+            display: block;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo">
+            <a href="web%20mk.html"><img src="logo3.png" alt="Sweet Corner" /></a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="web%20mk.html">Почетна</a></li>
+            <li><a href="za-nas.html">За нас</a></li>
+            <li><a href="meni.html">Мени</a></li>
+            <li><a href="kontakt.html" class="active">Контакт</a></li>
+            <li class="dropdown" style="position: relative;">
+                <a href="#" class="dropbtn" style="color: #5a4047; text-decoration: none;">Јазик ▼</a>
+                <div class="dropdown-content" style="display: none; position: absolute; top: 100%; right: 0; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); overflow: hidden; min-width: 120px; z-index: 100;">
+                    <a href="kontakt.html" style="display: block; padding: 8px 12px; color: #8b3a4c; text-decoration: none; font-size: 13px; font-weight: 600; background: #fdfaf8;">Македонски</a>
+                    <a href="contact.html" style="display: block; padding: 8px 12px; color: #5a4047; text-decoration: none; font-size: 13px;">English</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<section class="contact-page-section">
+    <div class="contact-wrapper">
+
+        <div class="contact-info-side">
+            <span class="contact-tag">ТУКА СМЕ ЗА ВАС ✨</span>
+            <h1 class="contact-title">Контактирајте нè</h1>
+            <p class="contact-desc">
+                Имате прашање, сакате да резервирате маса или да нарачате специјална торта за вашата прослава? Посетете нè или испратете ни порака!
+            </p>
+
+            <div class="info-list">
+                <div class="info-card">
+                    <div class="info-icon">📍</div>
+                    <div class="info-text">
+                        <h4>Локација</h4>
+                        <p>ул. Македонија бр. 42, Скопје</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">📞</div>
+                    <div class="info-text">
+                        <h4>Телефон</h4>
+                        <p>+389 2 3123 456 / +389 70 888 999</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">✉️</div>
+                    <div class="info-text">
+                        <h4>Е-пошта</h4>
+                        <p>hello@sweetcorner.mk</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">⏰</div>
+                    <div class="info-text">
+                        <h4>Работно Време</h4>
+                        <p>Пон - Саб: 08:00 - 00:00 | Нед: 09:00 - 23:00</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="social-section">
+                <h4>Следете нè:</h4>
+                <div class="social-links">
+                    <a href="https://instagram.com" target="_blank" class="social-btn">
+                        📷 Instagram
+                    </a>
+                    <a href="https://facebook.com" target="_blank" class="social-btn">
+                        📘 Facebook
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-form-side">
+            <h3>Испратете ни порака 💌</h3>
+            <form onsubmit="event.preventDefault(); alert('Ви благодариме! Вашата порака е успешно испратена до Sweet Corner тимот. 🍓'); this.reset();">
+                <div class="form-group">
+                    <input type="text" placeholder="Вашето име и презиме" required />
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Вашата е-пошта" required />
+                </div>
+                <div class="form-group">
+                    <input type="tel" placeholder="Вашиот телефонски број" />
+                </div>
+                <div class="form-group">
+                    <textarea rows="4" placeholder="Вашата порака или специјална желба..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Испрати Порака ✨</button>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="map-section">
+        <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2965.176378413645!2d21.428581!3d41.996460!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135415c8e31a31b7%3A0xb3e1673a5a782a17!2sMacedonia%20St%2C%20Skopje!5e0!2m3!1smk!2smk!4v1700000000000!5m2!1smk!2smk"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</section>
+<script>
+    document.querySelector('.dropdown').addEventListener('click', function(e) {
+        let content = this.querySelector('.dropdown-content');
+        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        e.stopPropagation();
+    });
+    window.addEventListener('click', function() {
+        let content = document.querySelector('.dropdown-content');
+        if(content) content.style.display = 'none';
+    });
+</script>
+</body>
+</html>

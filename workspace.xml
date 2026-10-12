@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9e0877b7-1439-4e55-bcea-8c59ef5b98d4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/logoopink2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/logopink.png" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="3FxMhvT5bt3HRNwBumvMRcG9k59" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/katic/WebstormProjects/untitled8/.idea",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\katic\WebstormProjects\untitled8\.idea" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\katic\WebstormProjects\untitled8\.idea" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-WS-243.26053.12" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9e0877b7-1439-4e55-bcea-8c59ef5b98d4" name="Changes" comment="" />
+      <created>1783012390070</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1783012390070</updated>
+      <workItem from="1783012391111" duration="6127000" />
+      <workItem from="1783095865539" duration="2450000" />
+      <workItem from="1783188234063" duration="200000" />
+      <workItem from="1783946599239" duration="3981000" />
+      <workItem from="1784031898382" duration="2503000" />
+      <workItem from="1784052601862" duration="3360000" />
+      <workItem from="1784234601836" duration="6863000" />
+      <workItem from="1784302966181" duration="1940000" />
+      <workItem from="1784378304437" duration="5902000" />
+      <workItem from="1785088991716" duration="152000" />
+      <workItem from="1785238655965" duration="793000" />
+      <workItem from="1785327221258" duration="4974000" />
+      <workItem from="1785502680711" duration="522000" />
+      <workItem from="1786478091090" duration="104000" />
+      <workItem from="1787836821074" duration="597000" />
+      <workItem from="1789391661432" duration="987000" />
+      <workItem from="1789392969425" duration="468000" />
+      <workItem from="1789393876627" duration="7008000" />
+      <workItem from="1789431050555" duration="309000" />
+      <workItem from="1789475587048" duration="1300000" />
+      <workItem from="1789580071307" duration="6761000" />
+      <workItem from="1789643257894" duration="7883000" />
+      <workItem from="1789736230385" duration="5449000" />
+      <workItem from="1789822118305" duration="16807000" />
+      <workItem from="1789933501059" duration="292000" />
+      <workItem from="1789933866229" duration="608000" />
+      <workItem from="1789990629852" duration="14068000" />
+      <workItem from="1790021107622" duration="602000" />
+      <workItem from="1790029288568" duration="2970000" />
+      <workItem from="1791648890628" duration="77000" />
+      <workItem from="1791754812647" duration="292000" />
+      <workItem from="1791805491488" duration="2948000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

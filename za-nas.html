@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>За Нас | Sweet Corner</title>
+
+    <link rel="stylesheet" href="web%20storm.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-cream: #fbf7f4;
+            --card-bg: #ffffff;
+            --primary-burgundy: #8b3a4c;
+            --burgundy-dark: #6d2c3c;
+            --text-main: #3b272d;
+            --text-muted: #7a5e66;
+            --border-subtle: #ebd5ce;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            background-image: radial-gradient(var(--primary-burgundy) 1.2px, transparent 1.2px);
+            background-size: 26px 26px;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            color: var(--text-main);
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 2px solid var(--primary-burgundy);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(139, 58, 76, 0.08);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 15px 30px;
+        }
+
+        .logo img {
+            height: 45px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-burgundy);
+            font-weight: 600;
+        }
+
+        .dropdown {
+            position: relative;
+            padding-bottom: 10px;
+            margin-bottom: -10px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ffffff;
+            min-width: 150px;
+            box-shadow: 0 12px 30px rgba(139, 58, 76, 0.18);
+            border-radius: 14px;
+            border: 1px solid var(--border-subtle);
+            overflow: hidden;
+            z-index: 100;
+            text-align: center;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: var(--text-main);
+            padding: 12px 18px;
+            display: block;
+            font-size: 13px;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .dropdown-content a:hover {
+            background: #f7edec;
+            color: var(--primary-burgundy);
+        }
+
+        .about-card-container {
+            background: #ffffff;
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(94, 67, 80, 0.08);
+            border: 1px solid #f0e2dc;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .about-menu-btn {
+            display: inline-block;
+            background: #5e4350;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(94, 67, 80, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .about-menu-btn:hover {
+            background: #8b3a4c;
+            color: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(139, 58, 76, 0.25);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo">
+            <a href="web%20mk.html"><img src="logo3.png" alt="Logo" /></a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="web%20mk.html">Почетна</a></li>
+            <li><a href="za-nas.html" class="active">За нас</a></li>
+            <li><a href="meni.html">Мени</a></li>
+            <li><a href="kontakt.html">Контакт</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Јазици ▼</a>
+                <div class="dropdown-content">
+                    <a href="za-nas.html" class="active-lang">Македонски</a>
+                    <a href="for-us.html">English</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<section class="about-page-section" style="padding: 60px 10% 80px 10%;">
+    <div class="about-card-container">
+
+        <div style="flex: 1; min-width: 300px; position: relative;">
+            <img src="sweet.png" alt="Создавање на магии" style="width: 100%; border-radius: 24px; box-shadow: 0 20px 40px rgba(94, 67, 80, 0.08); height: 480px; object-fit: cover;">
+            <div style="position: absolute; bottom: -20px; right: -20px; background: #5e4350; color: #ffffff; padding: 15px 25px; border-radius: 20px; font-weight: 600; font-size: 14px; box-shadow: 0 10px 25px rgba(94, 67, 80, 0.15);">Од срце 🤍</div>
+        </div>
+
+        <div style="flex: 1; min-width: 300px;">
+            <span style="font-size: 14px; text-transform: uppercase; letter-spacing: 2px; color: #8b3a4c; font-weight: 700; display: block; margin-bottom: 10px;">Како започна сè?</span>
+            <h1 style="font-family: 'Playfair Display', serif; font-size: 42px; color: #4d3140; line-height: 1.2; margin-bottom: 25px;">Нашата приказна</h1>
+
+            <p style="font-size: 16px; color: #6b5b64; line-height: 1.8; margin-bottom: 20px;">
+                Сè започна како тивок сон во една мала, домашна кујна, секогаш исполнета со мирис на печена ванила, цимет и карамела. Инспирирани од топлината со која нашите баби ги подготвуваа празничните колачи, решивме тоа чувство на чиста среќа да го споделиме со целиот свет.
+            </p>
+            <p style="font-size: 16px; color: #6b5b64; line-height: 1.8; margin-bottom: 20px;">
+                Првите торти беа направени со многу трема, наменети за родендените на нашите најблиски пријатели и семејството. Но, кога гласот за нивниот неодолив вкус и уникатен, нежен изглед почна брзо да се шири низ градот, сфативме дека нашиот сон има иднина. Така се роди <strong style="color: #8b3a4c;">Sweet Corner</strong>.
+            </p>
+            <p style="font-size: 16px; color: #6b5b64; line-height: 1.8; margin-bottom: 25px;">
+                Денес, иако сме во поголем простор, нашата филозофија не е променета ниту за милиметар. Секој крем се мати рачно, секое парче овошје внимателно се бира, а секоја декорација се прави со трпение кое граничи со уметност. Затоа што веруваме дека вашите најважни денови заслужуваат само совршенство.
+            </p>
+
+            <a href="meni.html" class="about-menu-btn">Погледни го менито</a>
+        </div>
+
+    </div>
+</section>
+
+</body>
+</html>
